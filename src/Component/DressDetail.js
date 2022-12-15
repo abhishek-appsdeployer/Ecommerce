@@ -1,7 +1,12 @@
 import React, { useState,useEffect } from 'react'
 import { useParams,Link } from 'react-router-dom';
+import HeaderLog from './HeaderLog';
+import {useSelector,useDispatch} from 'react-redux'
+import { inc } from '../Action/Inc';
+import { getid } from '../Action/action';
 
 const DressDetail = () => {
+  let dispatch=useDispatch()
     let { id } = useParams();
     console.log(id)
     const num=Number(id)
@@ -15,7 +20,7 @@ useEffect(() => {
         const res=actualData.products
       const re=  res.filter((e)=>e.id===num)
         setPost(re)
-        console.log(re)
+        console.log(re.price)
       }
       )
       .catch((err) => {
@@ -23,6 +28,8 @@ useEffect(() => {
       });
   }, []);
   return (
+    <div className='bgad he '>
+    <HeaderLog/>
     <div className='container'>
     <h1>Products Details</h1>
     <div className="">
@@ -32,7 +39,7 @@ useEffect(() => {
                 <>
                     <h1>{e.brand}</h1>
                     {/* <h3>{e.description}</h3> */}
-                    <div className="d-flex ">
+                    <div className="d-flex  ">
                       <div className='flexchild'>
                         <img className='imgchild img-fluid' src={e.images[0]} alt="" />
                       </div>
@@ -44,9 +51,9 @@ useEffect(() => {
 
                         <div className="d-flex gap-5">
                         <Link to= {`/adress/${e.price}`} >
-                          <button className='btn btn-success rounded-5'>Buy Now</button>
+                          <button className='btn btn-success rounded-5' >Buy Now</button>
                            </Link>
-                          <button className='btn btn-danger rounded-5'>Add to Cart</button>
+                          <button className='btn btn-danger rounded-5' onClick={()=>dispatch(getid(e.id),alert(e.id))}>Add to Cart</button>
                         </div>
                       </div>
                     </div>
@@ -57,6 +64,7 @@ useEffect(() => {
     </div>
 
       
+    </div>
     </div>
   )
 }

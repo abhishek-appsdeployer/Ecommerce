@@ -12,6 +12,9 @@ import Address from './Component/Address';
 import Payment from './Component/Payment';
 import Thanks from './Component/Thanks';
 import AddProduct from './Component/AddProduct';
+import GetProdocut from './Component/GetProdocut';
+import AdminLogin from './Component/Admin/AdminLogin';
+import AdminDashboard from './Component/Admin/AdminDashboard';
 
 function App() {
   return (
@@ -32,6 +35,9 @@ function App() {
       <Route path="/adress/:id/pay" element={<Payment/>} />
       <Route path="/thanks" element={<Thanks/>} />
       <Route path="/add" element={<AddProduct/>} />
+      <Route path="/get" element={<GetProdocut/>} />
+      <Route path="/admin" element={<AdminLogin/>} />
+      <Route path="/adminDashobard" element={<AdminDashboard/>} />
 
         </Routes>
       </BrowserRouter>

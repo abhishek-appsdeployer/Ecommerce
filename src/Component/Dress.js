@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 import Header from "./Header"
 import Footer from "./Footer"
+import HeaderLog from './HeaderLog';
 
 const Dress = () => {
     const base="https://dummyjson.com/products"
@@ -25,7 +26,7 @@ useEffect(() => {
   }, []);
   return (
     <div className='dress'>
-    <Header/>
+    <HeaderLog/>
     <div className='container '>
         <h1 className='text-light'>Dress</h1>
     <div className="row ">
