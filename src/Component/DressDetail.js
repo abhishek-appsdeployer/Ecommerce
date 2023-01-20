@@ -2,8 +2,9 @@ import React, { useState,useEffect } from 'react'
 import { useParams,Link } from 'react-router-dom';
 import HeaderLog from './HeaderLog';
 import {useSelector,useDispatch} from 'react-redux'
-import { inc } from '../Action/Inc';
+import { inc} from '../Action/Inc';
 import { getid } from '../Action/action';
+import { Prodcut } from '../Action/Prodcut';
 
 const DressDetail = () => {
   let dispatch=useDispatch()
@@ -53,7 +54,7 @@ useEffect(() => {
                         <Link to= {`/adress/${e.price}`} >
                           <button className='btn btn-success rounded-5' >Buy Now</button>
                            </Link>
-                          <button className='btn btn-danger rounded-5' onClick={()=>dispatch(getid(e.id),alert(e.id))}>Add to Cart</button>
+                          <button className='btn btn-danger rounded-5' onClick={()=>dispatch(Prodcut(e.title))}>Add to Cart</button>
                         </div>
                       </div>
                     </div>

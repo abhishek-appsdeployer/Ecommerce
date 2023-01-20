@@ -5,8 +5,10 @@ import Modal from 'react-bootstrap/Modal';
 const CartModel = () => {
     const [show,setShow]=useState(false)
     const mystate=useSelector((state)=>state.changeNumber)
+    const productname=useSelector((state)=>state.Productname)
+    console.log("cart",productname)
     const myid=useSelector((state)=>state.getId)
-    console.log(myid)
+    // console.log(myid)
     const [data,setdata]=useState([])
     const [totaldata,setTotal]=useState([])
 
@@ -32,7 +34,7 @@ const CartModel = () => {
 
     <div>
       <div className="addtocart" onClick={()=>setShow(true)}>
-    <span className="noofitems">{mystate}</span>
+    <span className="noofitems">{productname.length}</span>
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdHkPW4rSaI-Ir33ZeNRIDw1HaEHDwe_1W_OrE8xmn&s" alt="" />     
 </div>
 
@@ -53,10 +55,10 @@ const CartModel = () => {
         <Modal.Body>
         <h1>Cart items</h1>
         {
-          totaldata.map((e)=>{
+          productname.map((e)=>{
             return(
               <>
-                <h2>{e.title}</h2>
+                <h2>{e.name}</h2>
               </>
             )
           })
