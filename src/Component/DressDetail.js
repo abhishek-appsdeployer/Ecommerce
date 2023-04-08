@@ -1,12 +1,14 @@
 import React, { useState,useEffect } from 'react'
 import { useParams,Link } from 'react-router-dom';
 import HeaderLog from './HeaderLog';
+
 import {useSelector,useDispatch} from 'react-redux'
 import { inc} from '../Action/Inc';
 import { getid } from '../Action/action';
 import { Prodcut } from '../Action/Prodcut';
 
 const DressDetail = () => {
+  const productname=useSelector((state)=>state.Productname)
   let dispatch=useDispatch()
     let { id } = useParams();
     console.log(id)
@@ -27,7 +29,13 @@ useEffect(() => {
       .catch((err) => {
         console.log(err.message);
       });
+      
   }, []);
+  function check(){
+    productname.filter(e=>e)
+    dispatch(Prodcut(post))
+
+  }
   return (
     <div className='bgad he '>
     <HeaderLog/>
@@ -54,7 +62,8 @@ useEffect(() => {
                         <Link to= {`/adress/${e.price}`} >
                           <button className='btn btn-success rounded-5' >Buy Now</button>
                            </Link>
-                          <button className='btn btn-danger rounded-5' onClick={()=>dispatch(Prodcut(e.title))}>Add to Cart</button>
+                          {/* <button className='btn btn-danger rounded-5' onClick={()=>dispatch(Prodcut(post))}>Add to Cart</button> */}
+                          <button className='btn btn-danger rounded-5' onClick={()=>check()}>Add to Cart</button>
                         </div>
                       </div>
                     </div>

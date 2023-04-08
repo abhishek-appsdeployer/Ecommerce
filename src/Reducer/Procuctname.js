@@ -6,9 +6,10 @@ const Productname=(state=start,action)=>{
     {
         case "add":{
             console.log("in the reduceer",action.payload)
-            const data ={name:action.payload}
-            console.log(state+data)
-            return [...state,data]
+            // const data ={name:action.payload}
+            console.log(state+action.payload)
+            
+            return [...state,action.payload]
            
 
         }
