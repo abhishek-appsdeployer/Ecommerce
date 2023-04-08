@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import LandingPage from './Component/LandingPage';
-import { BrowserRouter ,Routes,Route} from 'react-router-dom';
+import { BrowserRouter ,Routes,Route,HashRouter} from 'react-router-dom';
 import Login from './Component/Login';
 import Signup from './Component/Signup';
 import Mobile from './Component/Mobile';
@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       {/* <LandingPage/> */}
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
       <Route path="/" element={<LandingPage/>}/>
       <Route path="/login" element={<Login/>}/>
@@ -40,7 +40,7 @@ function App() {
       <Route path="/adminDashobard" element={<AdminDashboard/>} />
 
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
